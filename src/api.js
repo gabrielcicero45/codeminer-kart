@@ -47,3 +47,27 @@ export const setTournamentData = async (tournament) => {
     .then((data) => console.log("data", data))
     .catch((error) => console.log("error: ", error));
 };
+
+export const getRaceData = async () => {
+  try {
+    const response = await fetch(`${baseUrl}races`);
+    return await response.json();
+  } catch (error) {
+    console.log("error: ", error);
+  }
+};
+
+export const setRaceData = async (race) => {
+  console.log(JSON.stringify(race));
+
+  fetch(`${baseUrl}races`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(race),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log("data", data))
+    .catch((error) => console.log("error: ", error));
+};

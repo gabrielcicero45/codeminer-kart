@@ -4,12 +4,12 @@ import RacerForm from "./components/RacerForm/RacerForm";
 import TabNavigation from "./components/TabNavigation/TabNavigation";
 import TournamentForm from "./components/TournamentForm/TournamentForm";
 import "./App.css";
-import toad from "./assets/toad.png";
 import {
   getRacerData,
   setRacerData,
   getTournamentData,
   setTournamentData,
+  setRaceData
 } from "./api";
 import RacersList from "./components/RacersList/RacersList";
 
@@ -59,6 +59,9 @@ function App() {
     setTournamentData(tournament);
   };
 
+  const handleRaceSubmit = (race) => {
+    setRaceData(race);
+  };
   return (
     <div className="App">
       <TabNavigation tabs={tabsList} renderTab={renderTab} />
@@ -70,6 +73,13 @@ function App() {
       )}
       {activeTab === "Tournament Form" && (
         <TournamentForm handleSubmit={handleTournamentSubmit} />
+      )}
+      {activeTab === "Race Form" && (
+        <RaceForm
+          handleSubmit={handleRaceSubmit}
+          racers={racers}
+          tournaments={tournaments}
+        />
       )}
     </div>
   );
