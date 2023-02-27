@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
+import RaceForm from "./components/RaceForm/RaceForm";
 import RacerForm from "./components/RacerForm/RacerForm";
 import TabNavigation from "./components/TabNavigation/TabNavigation";
+import TournamentForm from "./components/TournamentForm/TournamentForm";
 import "./App.css";
 import toad from "./assets/toad.png";
-import { getRacerData, setRacerData } from "./api";
-
+import {
+  getRacerData,
+  setRacerData,
+  getTournamentData,
+  setTournamentData,
+} from "./api";
+import RacersList from "./components/RacersList/RacersList";
 
 function App() {
   const tabsList = ["Racer Form", "Tournament Form", "Race Form"];
   const [racers, setRacers] = useState([]);
+  const [tournaments, setTournaments] = useState([]);
   const [activeTab, setActiveTab] = useState("Racer Form");
 
   const renderTab = (tabId) => {
@@ -28,17 +36,40 @@ function App() {
     fetchRacers();
   }, []);
 
+  const fetchTournaments = async () => {
+    try {
+      const data = await getTournamentData();
+      setTournaments(data);
+    } catch (error) {
+      console.log("fetchRacers error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTournaments();
+  }, []);
+
   const handleRacerSubmit = (racer) => {
     const racersUpdated = [...racers, racer];
     setRacers(racersUpdated);
     setRacerData(racer);
   };
+
+  const handleTournamentSubmit = (tournament) => {
+    setTournamentData(tournament);
+  };
+
   return (
     <div className="App">
-      <img className="App__image" src={toad} alt="Toad in a kart" />
       <TabNavigation tabs={tabsList} renderTab={renderTab} />
       {activeTab === "Racer Form" && (
-        <RacerForm handleSubmit={handleRacerSubmit} />
+        <>
+          <RacerForm handleSubmit={handleRacerSubmit} />
+          <RacersList racers={racers} />
+        </>
+      )}
+      {activeTab === "Tournament Form" && (
+        <TournamentForm handleSubmit={handleTournamentSubmit} />
       )}
     </div>
   );
