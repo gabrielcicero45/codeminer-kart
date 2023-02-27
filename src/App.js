@@ -9,6 +9,7 @@ import {
   setRacerData,
   getTournamentData,
   setTournamentData,
+  getRaceData,
   setRaceData
 } from "./api";
 import RacersList from "./components/RacersList/RacersList";
@@ -17,6 +18,7 @@ function App() {
   const tabsList = ["Racer Form", "Tournament Form", "Race Form"];
   const [racers, setRacers] = useState([]);
   const [tournaments, setTournaments] = useState([]);
+  const [races, setRaces] = useState([]);
   const [activeTab, setActiveTab] = useState("Racer Form");
 
   const renderTab = (tabId) => {
@@ -41,12 +43,25 @@ function App() {
       const data = await getTournamentData();
       setTournaments(data);
     } catch (error) {
-      console.log("fetchRacers error:", error);
+      console.log("fetchTournaments error:", error);
     }
   };
 
   useEffect(() => {
     fetchTournaments();
+  }, []);
+
+  const fetchRaces = async () => {
+    try {
+      const data = await getRaceData();
+      setRaces(data);
+    } catch (error) {
+      console.log("fetchRaces error:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRaces();
   }, []);
 
   const handleRacerSubmit = (racer) => {
