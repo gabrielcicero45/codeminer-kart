@@ -1,0 +1,42 @@
+.app {
+  margin: 32px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 20px;
+  text-align: left;
+  padding: 24px;
+  margin: auto 24px;
+  background-color: beige;
+  border-radius: 16px;
+  border: 4px solid transparent;
+}
+
+.form__input {
+  appearance: none;
+  width: 75vw;
+  border: 1px solid rgba(128, 128, 128, 0.26);
+  border-bottom-color: rgba(34, 33, 33, 0.945);
+  border-radius: 0;
+  display: block;
+  line-height: 1;
+  margin: 24px;
+  padding: 16px;
+}
+
+.form__button {
+  border: 1px solid rgba(128, 128, 128, 0.26);
+  border-radius: 8px;
+  background-color: #003062;
+  color: white;
+  font-weight: 600;
+  display: block;
+  line-height: 1;
+  margin: 24px;
+  padding: 16px;
+}
