@@ -1,14 +1,6 @@
-.App {
+.app {
   margin: 32px;
   text-align: center;
-}
-
-.App__image {
-  width: 10vw;
-  height: 20vh;
-  position: absolute;
-  left: 5%;
-  bottom: 0;
 }
 
 .form {

@@ -3,9 +3,7 @@ import { useInput } from "../../hooks/useInput";
 
 const RacerForm = ({ handleSubmit }) => {
   const { value: name, handleInputChange: handleNameChange } = useInput("");
-
   const { value: bornAt, handleInputChange: handleBornAtChange } = useInput("");
-
   const { value: imageUrl, handleInputChange: handleImageUrlChange } =
     useInput("");
 

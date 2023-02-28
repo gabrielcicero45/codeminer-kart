@@ -73,12 +73,11 @@ function App() {
   const handleTournamentSubmit = (tournament) => {
     setTournamentData(tournament);
   };
-
   const handleRaceSubmit = (race) => {
     setRaceData(race);
   };
   return (
-    <div className="App">
+    <div className="app">
       <TabNavigation tabs={tabsList} renderTab={renderTab} />
       {activeTab === "Racer Form" && (
         <>
