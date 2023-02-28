@@ -7,6 +7,7 @@ const TournamentForm = ({ handleSubmit }) => {
     <>
       <h2>Tournament Form</h2>
       <form
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit({
@@ -17,6 +18,7 @@ const TournamentForm = ({ handleSubmit }) => {
         <label htmlFor="name">
           Name
           <input
+            className="form__input"
             type="text"
             name="name"
             id="name"
@@ -24,7 +26,7 @@ const TournamentForm = ({ handleSubmit }) => {
             onChange={handleNameChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className="form__button" type="submit">Submit</button>
       </form>
     </>
   );

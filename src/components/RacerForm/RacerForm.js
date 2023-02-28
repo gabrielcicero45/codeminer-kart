@@ -11,6 +11,7 @@ const RacerForm = ({ handleSubmit }) => {
     <>
       <h2>Racer Form</h2>
       <form
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit({
@@ -23,6 +24,7 @@ const RacerForm = ({ handleSubmit }) => {
         <label htmlFor="name">
           Name
           <input
+            className="form__input"
             type="text"
             name="name"
             id="name"
@@ -33,6 +35,7 @@ const RacerForm = ({ handleSubmit }) => {
         <label htmlFor="born_at">
           Birth date
           <input
+            className="form__input"
             type="date"
             name="born_at"
             id="born_at"
@@ -43,6 +46,7 @@ const RacerForm = ({ handleSubmit }) => {
         <label htmlFor="image_url">
           Image Url
           <input
+            className="form__input"
             type="text"
             name="image_url"
             id="image_url"
@@ -50,7 +54,7 @@ const RacerForm = ({ handleSubmit }) => {
             onChange={handleImageUrlChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button className="form__button" type="submit">Submit</button>
       </form>
     </>
     
